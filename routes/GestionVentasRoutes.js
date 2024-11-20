@@ -10,11 +10,11 @@ module.exports = function (servicio) {
 
       try {
 
-         const { Monto,Razon} = req.body;
+         const { Fecha,Hora,Monto,Razon} = req.body;
 
    
 
-         const Ventas = await servicio.addVentas(Monto,Razon);
+         const Ventas = await servicio.addVentas(Fecha,Hora,Monto,Razon);
 
          
          res.status(200).json(Ventas)

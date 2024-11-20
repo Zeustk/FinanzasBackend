@@ -8,10 +8,10 @@ class ServicioGastos {
     }
 
 
-    async addGastos(Monto,Categoria,Proveedor) {
+    async addGastos(Monto,Categoria,Proveedor,Fecha,Hora) {
         try {
 
-            const { fecha: Fecha, hora: Hora } = await obtenerFechaHoraDesdePython();
+           // const { fecha: Fecha, hora: Hora } = await obtenerFechaHoraDesdePython();
           
            
             const Disponible="SI";

@@ -6,11 +6,11 @@ class ServicioVentas {
     }
 
 
-    async addVentas(Monto, Razon) {
+    async addVentas(Monto, Razon,Fecha,Hora) {
         try {
 
 
-            const { fecha: Fecha, hora: Hora } = await obtenerFechaHoraDesdePython();
+           // const { fecha: Fecha, hora: Hora } = await obtenerFechaHoraDesdePython();
 
 
             const Disponible="SI";
