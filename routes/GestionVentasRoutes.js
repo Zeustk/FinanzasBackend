@@ -5,36 +5,30 @@ const router = express.Router();
 
 module.exports = function (servicio) {
 
-   /* router.post('/api/addVentas', async (req, res) => {
+   router.post('/api/addVentas', async (req, res) => {
+
+
       try {
-         // Consumir la API externa para obtener el Monto y la Razon
-         const apiUrl = "https://api.externa.com/datos"; // URL de la API externa
-         const response = await axios.get(apiUrl); // Realiza una solicitud GET a la API externa
 
-         // Extraer Monto y Razon de los datos obtenidos
-         const { Monto, Razon,Fecha,Hora } = response.data;
+         const { Monto,Razon,Fecha,Hora} = req.body;
 
-         console.log("Datos obtenidos de la API externa:", { Monto, Razon,Fecha,Hora });
 
-         // Verificar si los datos son válidos
-         if (!Monto || !Razon || !Fecha || !Hora) {
-            return res.status(400).json({ message: "Faltan datos necesarios (Monto o Razon)" });
-         }
+         const Ventas = await servicio.addVentas(Monto,Razon,Fecha,Hora);
 
-         // Llama a tu método `addVentas` con los datos obtenidos de la API externa
-         const Ventas = await servicio.addVentas(Monto, Razon,Fecha,Hora);
+         
 
-         // Responder con los datos registrados
-         res.status(200).json(Ventas);
+         res.status(200).json(Ventas)
 
       } catch (error) {
-         console.error("Error al registrar la venta:", error.message);
-         res.status(500).json({ message: "Error al registrar la venta", error: error.message });
-      }
-   });
-   */
 
-   async function consumirApiYRegistrar() {
+         res.status(404).json(error);
+
+      }
+
+   })
+   
+
+   /*async function consumirApiYRegistrar() {
       try {
          const apiUrl = "https://api.externa.com/datos"; // URL de la API externa
          const response = await axios.get(apiUrl); // Realiza una solicitud GET a la API externa
@@ -86,7 +80,7 @@ module.exports = function (servicio) {
          res.status(500).json({ message: "Error al realizar la operación", error: error.message });
       }
    });
-
+  */
    router.get('/api/getVentas', async (req, res) => {
 
       const Perfiles = await servicio.getVentas();
