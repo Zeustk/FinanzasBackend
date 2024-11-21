@@ -10,15 +10,15 @@ module.exports = function (servicio) {
 
       try {
 
-         const { email ,contrasena } = req.body;
+         const { Email ,Contrasena } = req.body;
 
 
 
-         const Cuentas = await servicio.addCuentas(Saldo, Ncuenta, Descripcion, FApertura);
+         const Usuarios = await servicio.addUsuarios(Email ,Contrasena);
 
 
 
-         res.status(200).json(Cuentas)
+         res.status(200).json(Usuarios)
 
       } catch (error) {
 
@@ -93,10 +93,12 @@ module.exports = function (servicio) {
 
       try {
 
-         const { Email, Clave } = req.body;
+       
 
-         console.log(Clave);
-         const UsuarioVerificar = await servicio.getUsuarioConId(Email, Clave);
+         const { Email ,Contrasena } = req.body;
+
+      
+         const UsuarioVerificar = await servicio.getUsuarioConId(Email, Contrasena);
 
          res.status(200).json(UsuarioVerificar);
 
@@ -105,14 +107,6 @@ module.exports = function (servicio) {
       }
    });
 
-   router.get('/api/getUsuariosPorIdProyecto/:Id_Proyecto', async (req, res) => {
-
-      const { Id_Proyecto } = req.params
-
-      const usuarios = await servicio.getUsuariosPorProyectos(Id_Proyecto);
-
-      res.json(usuarios);
-   })
 
 
    return router;

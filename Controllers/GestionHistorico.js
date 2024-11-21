@@ -39,9 +39,9 @@ class ServicioEntregas {
                 
                 return result.map(propiedad => ({
                     "Mes": propiedad.mes,
-                    "Gastos Del Mes": propiedad.gastos_del_mes,
-                    "Ingresos Del Mes": propiedad.ingresos_del_mes,
-                    "Monto a Favor":propiedad.monto_a_favor,
+                    "Gastos_Del_Mes": propiedad.gastos_del_mes,
+                    "Ingresos_Del_Mes": propiedad.ingresos_del_mes,
+                    "Monto_a_Favor":propiedad.monto_a_favor,
     
                 }));
 

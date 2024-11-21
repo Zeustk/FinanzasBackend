@@ -7,18 +7,19 @@ class ServicioUsuarios {
         this.DB = DB;
     }
 
+    
 
-    async addGastos(Monto,Categoria,Proveedor) {
+
+    async addUsuarios(Email ,Contrasena) {
         try {
 
-            const { fecha: Fecha, hora: Hora } = await obtenerFechaHoraDesdePython();
           
            
             const Disponible="SI";
 
-            const sql = "INSERT INTO Gastos(Fecha,Hora,Monto,Categoria,Proveedor,Disponible) VALUES (?,?, ?, ?, ?,?)";
+            const sql = "INSERT INTO Usuarios(Email,Contrasena,Disponible) VALUES (?,?, ?)";
     
-            await this.DB.Open(sql, [Fecha,Hora,Monto,Categoria,Proveedor,Disponible]);
+            await this.DB.Open(sql, [Email ,Contrasena,Disponible]);
     
             return 'Guardado Exitosamente';
         } catch (err) {
@@ -51,6 +52,26 @@ class ServicioUsuarios {
         }
     }
     
+    async getUsuarioConId(Email, Contrasena) {
+        try {
+            const sql = "SELECT * FROM usuarios WHERE Email = ? and Contrasena = ?";
+            let result = await this.DB.Open(sql, [Email, Contrasena]);
+    
+            if (result && result.length > 0) {
+                return {
+        
+                    "Email": result[0].email,
+                    "Contrasena": result[0].clave,
+          
+                };
+            } else {
+                return null; // No se encontraron registros
+            }
+        } catch (err) {
+            console.error(err);
+            return 'Error de consulta';
+        }
+    }
 
 
     async UpdateRoles(Id_Rol,Nombre,Prioridad) {

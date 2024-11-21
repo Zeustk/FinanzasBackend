@@ -12,7 +12,7 @@ module.exports = function (servicio) {
 
          const { Saldo, Ncuenta, Descripcion, FApertura } = req.body;
 
-
+   
 
          const Cuentas = await servicio.addCuentas(Saldo, Ncuenta, Descripcion, FApertura);
 
@@ -88,23 +88,7 @@ module.exports = function (servicio) {
       res.json(DelUsuario);
    })
 
-   router.post('/api/getUsuarioConId', async (req, res) => {
-
-
-      try {
-
-         const { Email, Clave } = req.body;
-
-         console.log(Clave);
-         const UsuarioVerificar = await servicio.getUsuarioConId(Email, Clave);
-
-         res.status(200).json(UsuarioVerificar);
-
-      } catch (error) {
-         res.status(404).json(error);
-      }
-   });
-
+   
    router.get('/api/getUsuariosPorIdProyecto/:Id_Proyecto', async (req, res) => {
 
       const { Id_Proyecto } = req.params
