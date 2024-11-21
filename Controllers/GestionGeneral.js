@@ -45,7 +45,7 @@ class ServicioGeneral {
                     "Ventas_Hoy":propiedad.ventas_hoy,
                     "Gastos_Hoy":propiedad.gastos_hoy,
                     "Numero_Ventas_Hoy":propiedad.ventas_hoy,
-                    "Numero_Ventas_Totales":propiedad.Ventas_Totales
+                    "Numero_Ventas_Totales":propiedad.ventas_totales
     
                 }));
 
