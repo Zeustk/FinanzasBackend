@@ -12,15 +12,15 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
   }
 });
 
-//const sequelize = new Sequelize({
+/*const sequelize = new Sequelize({
   database: process.env.PGDATABASE,
   username: process.env.PGUSER,
   password: process.env.PGPASSWORD,
   host: process.env.PGHOST,
   port: process.env.PGPORT,
   dialect: 'postgres',
-//});
-
+});
+*/
 // Usamos DATABASE_URL si está configurada en Heroku
 
 
