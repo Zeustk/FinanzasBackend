@@ -43,7 +43,9 @@ class ServicioGeneral {
                     "Gastos_Mes_Actual": propiedad.gastos_mes_actual,
                     "Saldo_inicial":propiedad.saldo_inicial,
                     "Ventas_Hoy":propiedad.ventas_hoy,
-                    "Gastos_Hoy":propiedad.gastos_hoy
+                    "Gastos_Hoy":propiedad.gastos_hoy,
+                    "Numero_Ventas_Hoy":propiedad.ventas_hoy,
+                    "Numero_Ventas_Totales":propiedad.Ventas_Totales
     
                 }));
 
