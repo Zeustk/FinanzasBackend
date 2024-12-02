@@ -74,44 +74,7 @@ class ServicioUsuarios {
     }
 
 
-    async UpdateRoles(Id_Rol,Nombre,Prioridad) {
-
-        try { 
-            
-            
-            
-            const sql = "update roles set Nombre=?,Prioridad=? where Id_Rol=?";
-
-            await this.DB.Open(sql, [Id_Rol,Nombre,Prioridad]);
-
-            return ('Actualizado Correctamente')
-        }
-
-        catch (err) {
-            console.error(err);
-            return ('Error al actualizar');
-        }
-
-    }
-
-
-    async DeleteRoles(Id_Rol) {
-
-        try {
-
-            const sql = "update roles set Disponible='NO' where Id_Rol=?";
-
-            await this.DB.Open(sql, [Id_Rol], true);
-
-            return ('Eliminado Correctamente')
-        }
-
-        catch (err) {
-            console.error(err);
-            return ('Error al Eliminar');
-        }
-
-    }
+  
 
 
 }

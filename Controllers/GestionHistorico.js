@@ -58,45 +58,7 @@ class ServicioEntregas {
 
 
 
-    async UpdateTareas(Id_Tarea, Nombre, Fecha_Inicio, Fecha_Finalizacion, Descripcion, Porcentajetarea) {
-
-        try {
-
-
-
-            const sql = "update Tareas set Nombre=?,Fecha_Inicio=?,Fecha_Finalizacion=?,Descripcion=?,Porcentajetarea=? where Id_Tarea=?";
-
-            await this.DB.Open(sql, [Id_Tarea, Nombre, Fecha_Inicio, Fecha_Finalizacion, Descripcion, Porcentajetarea]);
-
-            return ('Actualizado Correctamente')
-        }
-
-        catch (err) {
-            console.error(err);
-            return ('Error al actualizar');
-        }
-
-    }
-
-
-    async DeleteTareas(Id_Tarea) {
-
-        try {
-
-            const sql = "update Tareas set Disponible='NO' where Id_Tarea=?";
-
-            await this.DB.Open(sql, [Id_Tarea], true);
-
-            return ('Eliminado Correctamente')
-        }
-
-        catch (err) {
-            console.error(err);
-            return ('Error al Eliminar');
-        }
-
-    }
-    
+   
 
 }
 
